@@ -1,26 +1,182 @@
 @import "tailwindcss";
 
+/* =========================================
+   PRANAV COKE — ROYAL RED & GOLD THEME
+========================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #100909;
+  --foreground: #f8f1e7;
+
+  --gold: #c9a45c;
+  --gold-light: #e8ca8c;
+  --gold-dark: #8f6b32;
+
+  --red: #a71924;
+  --red-light: #d32f3a;
+  --red-dark: #570b12;
+
+  --card: #1c1212;
+  --card-light: #261717;
+
+  --border: rgba(201, 164, 92, 0.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Main Background */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+  background: var(--background);
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(
+      ellipse at 0% 0%,
+      rgba(145, 20, 32, 0.18),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 100% 15%,
+      rgba(201, 164, 92, 0.08),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(100, 10, 20, 0.12),
+      transparent 45%
+    ),
+    var(--background);
+
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
+
+  min-height: 100vh;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+
+::selection {
+  background: rgba(201, 164, 92, 0.35);
+  color: #ffffff;
+}
+
+/* Premium Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #130909;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #c9a45c,
+    #8f1823,
+    #570b12
+  );
+
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}
+
+/* Inputs */
+
+input,
+textarea,
+select {
+  color-scheme: dark;
+  font-family: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #82756d;
+}
+
+/* Autofill */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f8f1e7;
+
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Buttons & Links */
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Focus */
+
+:focus-visible {
+  outline: 2px solid rgba(201, 164, 92, 0.75);
+  outline-offset: 3px;
+}
+
+/* Images */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Smooth Interactions */
+
+@media (prefers-reduced-motion: no-preference) {
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    transition-property:
+      color,
+      background-color,
+      border-color,
+      transform,
+      box-shadow,
+      opacity;
+
+    transition-duration: 200ms;
+
+    transition-timing-function: ease;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 20px;
+  }
+
+  body {
+    background:
+      radial-gradient(
+        ellipse at top,
+        rgba(145, 20, 32, 0.15),
+        transparent 45%
+      ),
+      #100909;
+  }
 }
